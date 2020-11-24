@@ -1,0 +1,20 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 10px;   
+    scroll-behavior: smooth;
+    color: rgba(0,0,0,.5);    
+}
+
+
+aside {
+    background-color: rgb(192, 192, 192);
+    float: left;
+    padding: 1rem;
+    padding-bottom: 25rem; 
+}

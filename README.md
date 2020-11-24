@@ -1,2 +1,1 @@
-# c
-Weather-App
+# Weather-App

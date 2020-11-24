@@ -18,6 +18,11 @@ aside{
     padding-bottom: auto; 
 }
 
+div.field.has-addons.flex{
+    display: flex;
+    justify-content: center;
+}
+
 /* output. City name and weather characteristics */
 main{
     background-color: cadetblue;

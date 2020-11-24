@@ -19,10 +19,12 @@ aside{
 }
 
 main{
- 
     background-color: cadetblue;
-   
     overflow: hidden;
+}
+
+main.section{
+    padding: 15.5rem 0.1rem;
 }
 
 

@@ -12,9 +12,20 @@ html{
 }
 
 
-aside {
+aside{
     background-color: rgb(192, 192, 192);
-    float: left;
-    padding: 1rem;
+    padding: 2rem;
     padding-bottom: 25rem; 
 }
+
+main{
+ 
+    background-color: cadetblue;
+   
+    overflow: hidden;
+}
+
+
+
+
+

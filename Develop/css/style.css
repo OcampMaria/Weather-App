@@ -15,17 +15,13 @@ html{
 aside{
     background-color: rgb(192, 192, 192);
     padding: 2rem;
-    padding-bottom: 25rem; 
+    padding-bottom: auto; 
 }
 
 /* output. City name and weather characteristics */
 main{
     background-color: cadetblue;
     overflow: hidden;
-}
-
-main.section{
-    padding: 15.5rem 0.1rem;
 }
 
 

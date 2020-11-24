@@ -11,13 +11,14 @@ html{
     color: rgba(0,0,0,.5);    
 }
 
-
+/* input search city */
 aside{
     background-color: rgb(192, 192, 192);
     padding: 2rem;
     padding-bottom: 25rem; 
 }
 
+/* output. City name and weather characteristics */
 main{
     background-color: cadetblue;
     overflow: hidden;
@@ -25,6 +26,14 @@ main{
 
 main.section{
     padding: 15.5rem 0.1rem;
+}
+
+section.container{
+    padding: 0;
+    border: black;
+    border-style: solid;
+    
+    
 }
 
 

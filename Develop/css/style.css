@@ -25,16 +25,9 @@ main{
 }
 
 main.section{
-    padding: 1rem;
+    padding: 15.5rem 0.1rem;
 }
 
-section.container{
-    padding: 0;
-    border: black;
-    border-style: solid;
-
-    
-}
 
 
 

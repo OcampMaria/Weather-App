@@ -47,6 +47,24 @@ main p{
 
 
 
+/* media queries */
+@media screen and (max-width: 500px){
+    main.section {
+        padding: 0.5rem .5rem;
+        clear: both;
+    }
 
+    aside{
+        background-color: rgb(192, 192, 192);
+        padding: 2rem;
+        
+    }
 
+    aside {
+       
+        padding: 2rem;
+        padding-right: 5rem;
+    }
+    
+}
 

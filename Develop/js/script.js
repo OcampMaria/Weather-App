@@ -2,7 +2,7 @@ $(document).ready(function (){
   $("#search").click(function(){
     
     var cityName = $(".inputCity").val();
-    var WeatherAPI= "https://api.openweathermap.org/data/2.5/weather?q=London&appid=c600d0cc510e3815c07a6df7cf76f58e";
+    var WeatherAPI= "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units" + "&appid=c600d0cc510e3815c07a6df7cf76f58e";
     
     if (cityName != ""){
       $.ajax({
@@ -12,15 +12,12 @@ $(document).ready(function (){
           console.log(data);
         }
 
+
+
       })
-
-
     } else {
-      $("#error").html("Field cannot be empty");
-      console.log();
+      $("#error").html("field cannot be empty")
     }
-  
-  
-    
+      
   });
 });

@@ -5,11 +5,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-html{
-    font-size: 10px;   
-    scroll-behavior: smooth;
-    color: rgba(0,0,0,.5);    
-}
 
 
 /* input search city */
@@ -45,8 +40,6 @@ main p{
 }
 
 
-
-
 /* media queries */
 @media screen and (max-width: 500px){
     main.section {
@@ -55,7 +48,11 @@ main p{
     }
     aside {
         padding: 2rem;
-        padding-right: 15rem;
+        padding-right: 10rem;
+    }
+
+    div.control{
+        padding: initial;
     }
     
 }

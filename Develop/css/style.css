@@ -53,15 +53,7 @@ main p{
         padding: 0.5rem .5rem;
         clear: both;
     }
-
-    aside{
-        background-color: rgb(192, 192, 192);
-        padding: 2rem;
-        
-    }
-
     aside {
-       
         padding: 2rem;
         padding-right: 15rem;
     }

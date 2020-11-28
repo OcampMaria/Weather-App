@@ -11,23 +11,39 @@ html{
     color: rgba(0,0,0,.5);    
 }
 
+
 /* input search city */
 aside{
     background-color: rgb(192, 192, 192);
     padding: 2rem;
-    padding-bottom: auto; 
-}
-
-div.field.has-addons.flex{
-    display: flex;
-    justify-content: center;
+    padding-bottom: 100%; 
 }
 
 /* output. City name and weather characteristics */
 main{
-    background-color: cadetblue;
+    background-color: white;
     overflow: hidden;
 }
+
+main.section{
+    padding: .5rem .5rem;
+}
+
+main p{
+   padding-bottom: 2rem;
+}
+
+.sections{
+    border-style: solid;
+    border-width: .05rem;
+    border-color: black;
+    padding: 1rem; 
+}
+
+.day{
+   padding: 2rem; 
+}
+
 
 
 

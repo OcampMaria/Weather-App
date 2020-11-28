@@ -30,7 +30,7 @@
         <p>Search for a City</p>
         <div class="field has-addons flex">
           <div class="control">
-            <input class="input inputCity" type="text" placeholder="City Name">
+            <input name="city" id="inputCity" class="input inputCity" type="text" placeholder="City Name">
             <span id="error"></span>
           </div>
           <div class="control">
@@ -39,15 +39,12 @@
             </a>
           </div>
         </div>
+        <div class="prepend"></div>
     </aside>
     <!-- for the output. Displays the city name and weather characteristics -->
     <main class="section">
-        <div class="cityInfo sections" id="outputWeather">
-          <h1 class="title "> City & Date</h1>
-          <p>Temperature:</p>
-          <p>Hunidity:</p>     
-          <p>Wind Speed:</p>
-          <p>UV index:</p>
+        <div id="outputWeather">
+         
         </div>
         <div class="fiveDay">
             <p> <strong>5-Day Forecast</strong> </p> 

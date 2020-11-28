@@ -9,15 +9,34 @@ $(document).ready(function (){
         url: WeatherAPI,
         method: "GET",
         success: function (data) {
-          console.log(data);
-        }
+          console.log(data);  
+          
+          var widget = show(data)
+          $("#outputWeather").html(widget);
+          $("#inputCity").val("")
+        }        
+      });
 
+      // prepend buttons for searched cities
+      $( ".prepend" ).append ("<div>" + "<button class='button is-fullwidth' >" + cityName + "</button>" + "</div>");
 
-
-      })
-    } else {
+    } else{
       $("#error").html("field cannot be empty")
     }
       
   });
 });
+
+function show (data) {
+  return "<div class='cityInfo sections' id='outputWeather'" +
+  "<h2 class= 'title'>" +  data.name + "</h2>" +
+  "<h3><strong>Temperature</strong>: " + data.main.temp + "&deg;C</h3>" +
+  "<h3><strong>Humidity</strong>: " + data.main.humidity + "</h3>" +
+  "<h3><strong>Wind Speed</strong>: " + data.wind.speed + "</h3>" +
+  "<h3><strong>UV index</strong>: " + "</h3>" +
+  
+  
+  "</div>"
+
+}
+

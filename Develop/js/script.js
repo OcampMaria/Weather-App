@@ -58,15 +58,12 @@ function show (data) {
 
 function display(data) {
 
-  return "<h3>Temperature: " + "</h3>" 
+  return "<div class='fiveDay'>" + 
+  "<p><strong>5-Day Forecast</strong> </p>" +
+  "<div class='day day-one is-pulled-left'>uno</div>" +
+  "<div class='day day-two is-pulled-left'>dos</div>" +
+  "<div class='day day-two is-pulled-left'>tres</div>" +
+  "<div class='day day-two is-pulled-left'>cuatro</div>" +
+  "<div class='day day-two is-pulled-left'>cinco</div> " +
+    "</div>"
 }
-
-
-// return "<div class='fiveDay'>" + 
-  // "<p><strong>5-Day Forecast</strong> </p>" +
-  // "<div class='day day-one is-pulled-left'>uno</div>" +
-  // "<div class='day day-two is-pulled-left'>dos</div> " +
-  // "<div class='day day-two is-pulled-left'>tres</div> " +
-  // "<div class='day day-two is-pulled-left'>cuatro</div> " +
-  // "<div class='day day-two is-pulled-left'>cinco</div> " +
-  // "</div>"

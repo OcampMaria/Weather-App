@@ -15,7 +15,6 @@ aside{
 }
 
 
-
 /* output. City name and weather characteristics */
 main{
     background-color: white;
@@ -37,12 +36,23 @@ main p{
     padding: 1rem; 
 }
 
-.day{
-   padding: 2rem; 
+img.image {
+    display: unset;
+    position: relative;
+    
 }
 
+.font{
+    font-size: 20px;
+}
+/* .day{
+   padding: 2rem; 
+} */
 
 
+.cityweather{
+    line-height: 5rem;
+}
 
 
 /* media queries */

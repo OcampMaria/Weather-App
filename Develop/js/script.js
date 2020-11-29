@@ -2,7 +2,9 @@ $(document).ready(function (){
   $("#search").click(function(){
     
     var cityName = $(".inputCity").val();
-    var WeatherAPI= "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units" + "&appid=c600d0cc510e3815c07a6df7cf76f58e";
+    var WeatherAPI= "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units" + "&appid=c6fd3ae4f6763936ec10d5be134b091f";
+  
+    
     
     if (cityName != ""){
       $.ajax({
@@ -14,7 +16,7 @@ $(document).ready(function (){
           var widget = show(data)
           $("#outputWeather").html(widget);
           $("#inputCity").val("")
-        }        
+        }    
       });
 
       // prepend buttons for searched cities
@@ -24,19 +26,36 @@ $(document).ready(function (){
       $("#error").html("field cannot be empty")
     }
       
+
+
+
+
+
+
+
+
+
+
+
   });
 });
 
 function show (data) {
   return "<div class='cityInfo sections' id='outputWeather'" +
-  "<h2 class= 'title'>" +  data.name + "</h2>" +
-  "<h3><strong>Temperature</strong>: " + data.main.temp + "&deg;C</h3>" +
-  "<h3><strong>Humidity</strong>: " + data.main.humidity + "</h3>" +
-  "<h3><strong>Wind Speed</strong>: " + data.wind.speed + "</h3>" +
-  "<h3><strong>UV index</strong>: " + "</h3>" +
-  
-  
-  "</div>"
+  "<h1 style='font-weight:bold;'> <img class='image is-48x48' src= http://openweathermap.org/img/w/" + data.weather[0].icon + ".png>" + data.name + "</h1>" +
 
+    "<h3>Temperature: " + data.main.temp + "&deg;C</h3>" +
+    "<h3>Humidity: " + data.main.humidity + "%</h3>" +
+    "<h3>Wind Speed: " + data.wind.speed + "m/s</h3>" +
+    "<h3>UV index: " + "</h3>" +
+    "</div>" 
 }
 
+// "<div class='fiveDay'>" + 
+//     "<p><strong>5-Day Forecast</strong> </p>" +
+//     "<div class='day day-one is-pulled-left'>uno</div>" +
+//     "<div class='day day-two is-pulled-left'>dos</div> " +
+//     "<div class='day day-two is-pulled-left'>tres</div> " +
+//     "<div class='day day-two is-pulled-left'>cuatro</div> " +
+//     "<div class='day day-two is-pulled-left'>cinco</div> " +
+//     "</div>"

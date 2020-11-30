@@ -20,7 +20,9 @@ $(document).ready(function (){
         }
       });
       // prepend buttons for searched cities
-      $( ".prepend" ).append ("<div>" + "<button class='button is-fullwidth' >" + cityName + "</button>" + "</div>");
+      $( ".prepend" ).prepend ("<div>" + "<button class='button is-fullwidth' >" + cityName + "</button>" + "</div>");
+
+      
 
       
       $.ajax({
@@ -28,10 +30,10 @@ $(document).ready(function (){
         method: "GET",
         success: function (data) {
           console.log(data);  
-
-          var forecast = display(data)
+          var forecast = display(data) 
           $(".forecast").html(forecast);
-          
+          $("#inputCity").val("")
+        
         }
       });
 
@@ -46,24 +48,23 @@ $(document).ready(function (){
 
 function show (data) {
   return "<div class='cityInfo sections' id='outputWeather'" +
-  "<h1 style='font-weight:bold; font-size:30px'>"+ "<div class= 'cityweather'>" + data.name + "<img class='image' src= http://openweathermap.org/img/w/" + data.weather[0].icon + ".png>" + "</div>" + "</h1>" +
+  "<h1 style='font-weight:bold; font-size:25px'>"+ "<div class= 'cityweather'>" + data.name + "<img class='image' src= http://openweathermap.org/img/w/" + data.weather[0].icon + ".png>" + "</div>" + "</h1>" +
 
-    "<h3 class='font'>Temperature: " + data.main.temp + "&deg;C</h3>" +
-    "<h3 class='font'>Humidity: " + data.main.humidity + "%</h3>" +
-    "<h3 class='font'>Wind Speed: " + data.wind.speed + "m/s</h3>" +
-    "<h3 class='font'>UV index: " + "</h3>" +
-    "</div>";  
-    display(data)
+  "<h3 class='secondaryfont'>Temperature: " + data.main.temp + "&deg;C</h3>" +
+  "<h3 class='secondaryfont'>Humidity: " + data.main.humidity + "%</h3>" +
+  "<h3 class='secondaryfont'>Wind Speed: " + data.wind.speed + "m/s</h3>" +
+  "<h3 class='secondaryfont'>UV index: " + "</h3>" +
+  "</div>";  
 }
 
 function display(data) {
 
   return "<div class='fiveDay'>" + 
-  "<p><strong>5-Day Forecast</strong> </p>" +
-  "<div class='day day-one is-pulled-left'>uno</div>" +
-  "<div class='day day-two is-pulled-left'>dos</div>" +
-  "<div class='day day-two is-pulled-left'>tres</div>" +
-  "<div class='day day-two is-pulled-left'>cuatro</div>" +
-  "<div class='day day-two is-pulled-left'>cinco</div> " +
-    "</div>"
+  "<div class= 'message is-info'>" +
+  "<h3 class='font'><strong>5-Day Forecast</strong> </h3>" +
+  "<h3 class='secondaryfont'> Temperature: " + "</h3>" +
+  "<h3 class='secondaryfont'> Humidity: " + "</h3>" + 
+  "</div>" +
+  
+  "</div>"
 }

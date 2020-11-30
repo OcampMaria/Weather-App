@@ -46,13 +46,14 @@ img.image {
     font-size: 20px;
 }
 
-.day{
-   padding: 2rem; 
+.secondaryfont{
+    font-size: 20px;
 }
 
 
+
 .cityweather{
-    line-height: 5rem;
+    line-height: 3rem;
 }
 
 

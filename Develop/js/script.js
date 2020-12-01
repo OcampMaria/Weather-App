@@ -4,47 +4,57 @@ $(document).ready(function (){
   $("#search").click(function(){
     
     var cityName = $(".inputCity").val();
-    var WeatherAPI= "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=metric" + "&appid=c6fd3ae4f6763936ec10d5be134b091f";
-    var fiveDayAPI= "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=c6fd3ae4f6763936ec10d5be134b091f";
-        
-    if (cityName != ""){
-      $.ajax({
-        url: WeatherAPI,
-        method: "GET",
-        success: function (data) {
-          console.log(data);  
-          
-          var current = show(data)
-          $("#outputWeather").html(current);
-          $("#inputCity").val("")
-        }
-      });
-      // prepend buttons for searched cities
-      $( ".prepend" ).prepend ("<div>" + "<button class='button is-fullwidth' >" + cityName + "</button>" + "</div>");
 
-      
-
-      
-      $.ajax({
-        url: fiveDayAPI,
-        method: "GET",
-        success: function (data) {
-          console.log(data);  
-          var forecast = display(data) 
-          $(".forecast").html(forecast);
-          $("#inputCity").val("")
-        
-        }
-      });
-
-     
-
-    } else{
-      $("#error").html("field cannot be empty")
-    }
+    ajaxcall(cityName)
 
   });
 });
+
+function ajaxcall(cityName) {
+  var WeatherAPI= "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=metric" + "&appid=c6fd3ae4f6763936ec10d5be134b091f";
+  var fiveDayAPI= "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial" +"&appid=c6fd3ae4f6763936ec10d5be134b091f";
+  
+
+  if (cityName != ""){
+    $.ajax({
+      url: WeatherAPI,
+      method: "GET",
+      success: function (data) {
+        console.log(data);  
+        
+        var current = show(data)
+        $("#outputWeather").html(current);
+        $("#inputCity").val("")
+      }
+    });
+    // prepend buttons for searched cities
+    var newbutton = $( ".prepend" ).prepend ("<div>" + "<li class='button is-fullwidth' >" + cityName + "</li>" + "</div>");
+    
+    $.ajax({
+      url: fiveDayAPI,
+      method: "GET",
+      success: function (data) {
+        console.log(data);  
+        var forecast = display(data) 
+        $(".forecast").html(forecast);
+        $("#inputCity").val("")
+      
+      }
+    });
+
+  } else{
+    $("#error").html("field cannot be empty")
+  }
+  
+}
+
+$(".button").on("click", function(){
+  console.log($(this).text ());
+  ajaxcall($(this).text ())
+
+ 
+});
+
 
 function show (data) {
   return "<div class='cityInfo sections' id='outputWeather'" +
@@ -58,13 +68,15 @@ function show (data) {
 }
 
 function display(data) {
-
-  return "<div class='fiveDay'>" + 
+ console.log(data);
+  return "<div class='fiveDay'>"  + 
   "<div class= 'message is-info'>" +
   "<h3 class='font'><strong>5-Day Forecast</strong> </h3>" +
-  "<h3 class='secondaryfont'> Temperature: " + "</h3>" +
+  "<h3 class='secondaryfont'> Temperature: " + data.list[0].main.temp + "</h3>" +
   "<h3 class='secondaryfont'> Humidity: " + "</h3>" + 
   "</div>" +
   
   "</div>"
 }
+
+

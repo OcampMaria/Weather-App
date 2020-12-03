@@ -48,7 +48,7 @@ function ajaxcall(cityName) {
   
 }
 
-$(".button").on("click", function(){
+$(".prepend").on("click", "li", function(){
   console.log($(this).text ());
   ajaxcall($(this).text ())
 

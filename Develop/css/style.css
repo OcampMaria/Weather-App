@@ -42,18 +42,21 @@ img.image {
     
 }
 
-.font{
-    font-size: 20px;
-}
-
-.secondaryfont{
-    font-size: 20px;
-}
-
-
-
 .cityweather{
     line-height: 3rem;
+}
+
+.hide{
+    display: none;
+}
+
+
+.card, .columns{
+    padding: 1rem; 
+}
+
+section.wf.columns {
+    margin-bottom: calc(1.5rem - 2.75rem);
 }
 
 

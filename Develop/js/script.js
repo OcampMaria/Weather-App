@@ -25,21 +25,21 @@ function ajaxcall(cityName) {
       
 
 
-    }).then(function(data){
-      console.log(data);  
+    }).then(function(data){     
       var lat= data.coord.lat;
       var lon= data.coord.lon;
 
       var current = show(data)
-      $("#cityName").html(current);
+      $(".cityName").html(current);
      
       $.ajax({
         url: `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=c6fd3ae4f6763936ec10d5be134b091f`,
         method: "GET",
       }).then(function(data){
-        console.log(data);
         var forecast = display(data) 
-        $(".forecast").html(forecast);
+        var fiveDayTitle = document.getElementById("forecast");
+        fiveDayTitle.classList.remove("hide")
+        $(".wf").html(forecast);
       })
 
 
@@ -54,7 +54,6 @@ function ajaxcall(cityName) {
 }
 
 $(".prepend").on("click", "li", function(){
-  console.log($(this).text ());
   ajaxcall($(this).text ())
 });
 
@@ -65,22 +64,20 @@ function show (data) {
   return "<div class='cityInfo sections' id='outputWeather'" +
   "<h1 style='font-weight:bold; font-size:25px'>"+ "<div class= 'cityweather'>" + data.name + "<img class='image' src= http://openweathermap.org/img/w/" + data.weather[0].icon + ".png>" + "</div>" + "</h1>" +
 
-  "<h3 class='secondaryfont'>Temperature: " + data.main.temp + " &deg;F</h3>" +
-  "<h3 class='secondaryfont'>Humidity: " + data.main.humidity + "%</h3>" +
-  "<h3 class='secondaryfont'>Wind Speed: " + data.wind.speed + " MPH </h3>" +
-  "<h3 class='secondaryfont'>UV index: " + data + "</h3>" +
+  "<h3> Temperature: " + data.main.temp + " &deg;F</h3>" +
+  "<h3> Humidity: " + data.main.humidity + "%</h3>" +
+  "<h3> Wind Speed: " + data.wind.speed + " MPH </h3>" +
+  "<h3> UV index: " + data + "</h3>" +
   "</div>";  
 }
 
-
-
-
 function display(data) {
-  console.log('forecast',data);
-  return "<div class= 'message is-info'>"+
-  "<h3 class='font'><strong>5-Day Forecast</strong> </h3>" + 
-  "<h3 class='secondaryfont'> Temperature: " + data.daily[0].temp.day + " &deg;F</h3>" +
-  "<h3 class='secondaryfont'> Humidity: " + data.daily[0].humidity + "%</h3>" + 
+  console.log(data);
+  return "<div>"+ 
+  "<div class= 'card'" +
+  "<h3> Temperature: " + data.daily[0].temp.day + " &deg;F</h3>" +
+  "<h3> Humidity: " + data.daily[0].humidity + "%</h3>" + 
+  "</div>" +
   "</div>"; 
 }
 

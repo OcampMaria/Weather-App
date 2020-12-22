@@ -12,9 +12,7 @@ $(document).ready(function (){
 // ajaxcall for both weather APIs requiring city name
 function ajaxcall(cityName) {
   var WeatherAPI= `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${apiKey}`;
-  // var fiveDayAPI= `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=${apiKey}`;
-  
-  // var uvIndex = `https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=c6fd3ae4f6763936ec10d5be134b091f`;
+
   
   if (cityName != ""){
     // current weather API ajax call
@@ -25,25 +23,57 @@ function ajaxcall(cityName) {
       
 
 
-    }).then(function(data){     
-      var lat= data.coord.lat;
-      var lon= data.coord.lon;
-
-      var current = show(data)
-      $(".cityName").html(current);
+    }).then(function(dataCurrent){     
+      var lat= dataCurrent.coord.lat;
+      var lon= dataCurrent.coord.lon;
+      var cityName = dataCurrent.name
+      console.log(cityName);
      
+      // One Call API
       $.ajax({
         url: `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=c6fd3ae4f6763936ec10d5be134b091f`,
         method: "GET",
-      }).then(function(data){
-        var forecast = display(data) 
+      }).then(function(dataOneCall){
+        
         var fiveDayTitle = document.getElementById("forecast");
         fiveDayTitle.classList.remove("hide")
-        $(".wf").html(forecast);
+        
+        var currentUV= dataOneCall.current.uvi;
+        var array = dataOneCall.daily;
+        console.log(array);
+        
+
+        $(".cityName").html(
+          "<div class='cityInfo sections' id='outputWeather'" +
+          "<h1 style='font-weight:bold; font-size:25px'>"+ "<div class= 'cityweather'>" + cityName + "<img class='image' src= http://openweathermap.org/img/w/" + dataCurrent.weather[0].icon + ".png>" + "</div>" + "</h1>" +
+  
+          "<h3> Temperature: " + dataCurrent.main.temp + " &deg;F</h3>" +
+          "<h3> Humidity: " + dataCurrent.main.humidity + "%</h3>" +
+          "<h3> Wind Speed: " + dataCurrent.wind.speed + " MPH </h3>" +
+          "<h3> UV index: " + currentUV + "</h3>" +
+          "</div>"
+        );
+
+        // var tempForecast= 
+        // var humidForecast= 
+        // var imageForecast = 
+        // var dateWeek= 
+          for (var i=0; i<array.length; i++){
+            
+            $(".wf").html(
+              "<div>"+ 
+              "<div class= 'card'" +
+              "<h3> Temperature: " + dataOneCall.daily[i].temp.day + " &deg;F</h3>" +
+              "<h3> Humidity: " + dataOneCall.daily[i].humidity + "%</h3>" + 
+              "</div>" +
+              "</div>"
+            );
+
+          }
+        
       })
-
-
     })
+    
     // prepend buttons for searched cities
     var newbutton = $( ".prepend" ).prepend ("<div>" + "<li class='button is-fullwidth' >" + cityName + "</li>" + "</div>");
 
@@ -56,33 +86,4 @@ function ajaxcall(cityName) {
 $(".prepend").on("click", "li", function(){
   ajaxcall($(this).text ())
 });
-
-
-
-function show (data) {
-  console.log(data);
-  return "<div class='cityInfo sections' id='outputWeather'" +
-  "<h1 style='font-weight:bold; font-size:25px'>"+ "<div class= 'cityweather'>" + data.name + "<img class='image' src= http://openweathermap.org/img/w/" + data.weather[0].icon + ".png>" + "</div>" + "</h1>" +
-
-  "<h3> Temperature: " + data.main.temp + " &deg;F</h3>" +
-  "<h3> Humidity: " + data.main.humidity + "%</h3>" +
-  "<h3> Wind Speed: " + data.wind.speed + " MPH </h3>" +
-  "<h3> UV index: " + data + "</h3>" +
-  "</div>";  
-}
-
-function display(data) {
-  console.log(data);
-  return "<div>"+ 
-  "<div class= 'card'" +
-  "<h3> Temperature: " + data.daily[0].temp.day + " &deg;F</h3>" +
-  "<h3> Humidity: " + data.daily[0].humidity + "%</h3>" + 
-  "</div>" +
-  "</div>"; 
-}
-
-
-
-
-
 

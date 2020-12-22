@@ -21,6 +21,8 @@ main{
     overflow: hidden;
 }
 
+
+/* Displays the city name and weather characteristics */
 main.section{
     padding: .5rem .5rem;
 }
@@ -28,14 +30,14 @@ main.section{
 main p{
    padding-bottom: 2rem;
 }
-
+/* five-day forecast */
 .sections{
     border-style: solid;
     border-width: .05rem;
     border-color: black;
     padding: 1rem; 
 }
-
+/* icons */
 img.image {
     display: unset;
     position: relative;
@@ -50,7 +52,7 @@ img.image {
     display: none;
 }
 
-
+/* five-day forecast cards */
 .card, .columns{
     padding: 1rem; 
 }

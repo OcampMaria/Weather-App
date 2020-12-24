@@ -6,9 +6,6 @@
     box-sizing: border-box;
 }
 
-h1{
-    font-weight: bold;
-}
 
 /* input search city */
 aside{
@@ -55,6 +52,12 @@ img.image {
     display: none;
 }
 
+div h1, div.cityweather{
+    padding: 1rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
 five-day forecast cards
 .card, .columns{
     padding: 1rem; 
@@ -63,6 +66,14 @@ five-day forecast cards
 div.card, .forecast{
     padding: .5rem;
 }
+
+
+div.columns.is-centered{
+    display: flex;
+    flex-flow: wrap;
+}
+
+
 
 
 /* media queries */
@@ -80,6 +91,12 @@ div.card, .forecast{
         padding: initial;
        
     }
+
+    div.columns.is-centered{
+        display: flex;
+        flex-flow: column;
+    }
+   
     
 }
 

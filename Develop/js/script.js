@@ -69,7 +69,7 @@ function ajaxcall(cityName) {
         // appending the html template literate to the div cityName
         $(".cityName").html(
           "<div class='cityInfo sections' id='outputWeather'" +
-          "<h1 style='font-weight:bold; font-size:25px'>"+ "<div class= 'cityweather'>" + cityName + currentDate + 
+          "<h1>"+ "<div class= 'cityweather'>" + cityName + currentDate + 
           "<img class='image' src= http://openweathermap.org/img/w/" + dataCurrent.weather[0].icon + ".png>" + "</div>" + "</h1>" +
   
           "<h3> Temperature: " + dataCurrent.main.temp + " &deg;F</h3>" +

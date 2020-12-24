@@ -16,11 +16,16 @@ $(document).ready(function (){
     storage.push(cityName)
 
     // sets items and adds strings to them inside the array storage. 
-    localStorage.setItem("item", JSON.stringify(storage))
+    storageSet = localStorage.setItem("item", JSON.stringify(storage))
 
   });
   // Create variable storage outside the click event so I can access it outside and also inside the event. 
   var storage= JSON.parse(localStorage.getItem("item"))||[];
+
+
+  var storageSet = localStorage.setItem("item", JSON.stringify(storage))
+
+
   // I use the forEach loop to loop through the storage array items and place those items as buttons which are prepended on the dashboard 
   storage.forEach(buttons=>{
     newbutton = $( ".prepend" ).prepend ("<div>" + "<li class='button is-fullwidth' >" + buttons + "</li>" + "</div>");
@@ -111,6 +116,5 @@ function ajaxcall(cityName) {
 
 $(".prepend").on("click", "li", function(){
   ajaxcall($(this).text ());
-
 });
 

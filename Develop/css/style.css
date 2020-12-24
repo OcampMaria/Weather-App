@@ -6,6 +6,9 @@
     box-sizing: border-box;
 }
 
+h1{
+    font-weight: bold;
+}
 
 /* input search city */
 aside{
@@ -52,13 +55,13 @@ img.image {
     display: none;
 }
 
-/* five-day forecast cards */
+five-day forecast cards
 .card, .columns{
     padding: 1rem; 
 }
 
-section.wf.columns {
-    margin-bottom: calc(1.5rem - 2.75rem);
+div.card, .forecast{
+    padding: .5rem;
 }
 
 

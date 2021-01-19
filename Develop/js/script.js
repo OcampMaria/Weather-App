@@ -4,13 +4,10 @@ var apiKey = "c6fd3ae4f6763936ec10d5be134b091f";
 $(document).ready(function (){
   // click function
   $("#search").click(function(){
-
     // I am placing cityName value inside the ajaxcall function. 
     var cityName = $(".inputCity").val();
     ajaxcall(cityName);
-
     
-
     // I am using JSON.parse to remove strings of array inside storage.
     storage= JSON.parse(localStorage.getItem("item"))||[];
 
@@ -18,18 +15,22 @@ $(document).ready(function (){
     storage.push(cityName)
 
     // sets items and adds strings to them inside the array storage. 
-    localStorage.setItem("item", JSON.stringify(storage))
-
+    localStorage.setItem("item", JSON.stringify(storage));
   });
+  
+  const reload = (load)=> {
+    document.getElementById("main").innerHTML = ""
+  }
   // Create variable storage outside the click event so I can access it outside and also inside the event. 
   var storage= JSON.parse(localStorage.getItem("item"))||[];
-
   // I use the forEach loop to loop through the storage array items and place those items as buttons which are prepended on the dashboard 
   storage.forEach(buttons=>{
     newbutton = $( ".prepend" ).prepend ("<div>" + "<li class='button is-fullwidth' >" + buttons + "</li>" + "</div>");
+
   })
   // call the ajax function and setting storage variable instead of city like in line 8. By adding this code here, displays the first item inside the storage array. ajaxcall is the API call.storage is the cityname array.0 is the first item in the array or the last searched item placed in the array. 
   ajaxcall(storage[0])
+
 });
 
 
@@ -103,15 +104,16 @@ function ajaxcall(cityName) {
     })
     
     // prepend buttons for searched cities and add them to the repend div. 
-    // newbutton = $( ".prepend" ).prepend ("<div>" + "<li class='button is-fullwidth' >" + cityName + "</li>" + "</div>");
+    newbutton = $( ".prepend" ).prepend ("<div>" + "<li class='button is-fullwidth' >" + cityName + "</li>" + "</div>");
 
   } else{
     $("#error").html("field cannot be empty")
   }
-  
+
 }
 
 $(".prepend").on("click", "li", function(){
-  ajaxcall($(this).text ());
-});
+    ajaxcall($(this).text ());
+  
+  });
 

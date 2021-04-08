@@ -18,9 +18,7 @@ $(document).ready(function (){
     localStorage.setItem("item", JSON.stringify(storage));
   });
   
-  const reload = (load)=> {
-    document.getElementById("main").innerHTML = ""
-  }
+  
   // Create variable storage outside the click event so I can access it outside and also inside the event. 
   var storage= JSON.parse(localStorage.getItem("item"))||[];
   // I use the forEach loop to loop through the storage array items and place those items as buttons which are prepended on the dashboard 
@@ -69,6 +67,9 @@ function ajaxcall(cityName) {
         // array containing the data for each day of the week 
         var array = dataOneCall.daily;
 
+        //clearing the div everytime a new city data is requested. 
+        document.querySelector(".columns").innerHTML = ""
+        
         // appending the html template literate to the div cityName
         $(".cityName").html(
           "<div class='cityInfo sections' id='outputWeather'" +
